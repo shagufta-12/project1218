@@ -41,9 +41,9 @@ INSTALLED_APPS = [
     'core',
     'rest_framework',
     'knox',
-    'account',
+    'accounts',
     'django_rest_passwordreset',
-    'drf_yasg',
+   
     
 ]
 

@@ -2,6 +2,9 @@ from django.shortcuts import render
 
 # Create your views here.
 
+
+
+
 from rest_framework import generics, permissions
 from rest_framework.response import Response
 from knox.models import AuthToken
@@ -20,7 +23,6 @@ class RegisterAPI(generics.GenericAPIView):
         "token": AuthToken.objects.create(user)[1]
         })
 
-
 from django.contrib.auth import login
 
 from rest_framework import permissions
@@ -36,7 +38,6 @@ class LoginAPI(KnoxLoginView):
         user = serializer.validated_data['user']
         login(request, user)
         return super(LoginAPI, self).post(request, format=None)
-
 
 from rest_framework import status
 from rest_framework import generics
