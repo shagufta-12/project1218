@@ -1,1 +1,1 @@
-web :gunicorn raahi.wsgi
+web: gunicorn raahi.wsgi
