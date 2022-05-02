@@ -37,12 +37,15 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
+   
     'core',
     'rest_framework',
     'knox',
     'accounts',
     'django_rest_passwordreset',
+    'drf_yasg',
+    'django.contrib.staticfiles',
+    
    
     
 ]
