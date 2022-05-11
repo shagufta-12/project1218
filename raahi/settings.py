@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-rd40mj15axf%1^ba78qu!!yz3#69uq$196#1b_njg2ft7@t654
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['localhost','*']
 
 
 # Application definition
@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'django_rest_passwordreset',
     'drf_yasg',
     'django.contrib.staticfiles',
+    'chat',
+    
     
    
     
@@ -88,26 +90,11 @@ WSGI_APPLICATION = 'raahi.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-
     'default': {
-
-        'ENGINE': 'django.db.backends.postgresql',
-
-        'NAME': 'dc09o5opih9plg',
-
-        'USER': 'dvrdpbbgxpgvbh',
-
-        'PASSWORD': '545bcbda99fa954b618ce423761b49e01e6fc301f8a37d2d71d659d08a5ea08e',
-
-        'HOST': 'ec2-34-197-84-74.compute-1.amazonaws.com',
-
-        'PORT': 5432 ,
-
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
-
 }
-
-print (DATABASES)
 
 
 # Password validation
