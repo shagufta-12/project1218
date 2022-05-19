@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'drf_yasg',
     'django.contrib.staticfiles',
     'chat',
+    'channels',
+    'private_chat',
     
     
    
@@ -70,7 +72,7 @@ ROOT_URLCONF = 'raahi.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR ,"templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -83,11 +85,21 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'raahi.wsgi.application'
+#WSGI_APPLICATION = 'raahi.wsgi.application'
+ASGI_APPLICATION = 'raahi.asgi.application'
 
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
+
+CHANNEL_LAYERS = {
+    "default":{
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [{"127.0.0.1", 6379}],
+        },
+    },
+}
 
 
 
@@ -138,7 +150,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS =[
+    os.path.join(BASE_DIR, 'static')
+]
 STATIC_ROOT = BASE_DIR / 'static'
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static_cdn')
 
 
 REST_FRAMEWORK = {

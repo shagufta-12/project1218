@@ -4,6 +4,8 @@ from .views import *
 from .form import MyChangePasswordForm , PasswordResetForm
 from django.contrib.auth.views import LogoutView, PasswordChangeView, PasswordChangeDoneView, PasswordResetView, PasswordResetConfirmView, PasswordResetDoneView
 from chat import views as chat_views
+from private_chat import views as private_chat_views
+
 urlpatterns = [
     path('', home, name='home'),
     path('signup/', SignupView.as_view(), name='signup'),
@@ -19,6 +21,11 @@ urlpatterns = [
     path('checkview', chat_views.checkview, name='checkview'),
     path('send', chat_views.send, name='send'),
     path('getMessages/<str:room>/', chat_views.getMessages, name='getMessages'),
+
+    path('index/', private_chat_views.index, name='index'),
+    path('<str:username>', private_chat_views.private_chatPage, name='chat'),
+
+   
 ]
 
 
