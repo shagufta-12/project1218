@@ -47,3 +47,4 @@ class MyLoginView(View):
             
          
             return render(request, 'core/login.html', {'form':fm})
+            

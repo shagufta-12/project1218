@@ -7,7 +7,7 @@ User = get_user_model()
 
 def index(request):
     users = User.objects.exclude(username=request.user.username)
-    return render(request,  'index.html', context={'users':users})
+    return render(request,'index.html', context={'users':users})
 
 
 def private_chatPage(request, username):
