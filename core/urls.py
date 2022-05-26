@@ -3,8 +3,11 @@ from django.urls import path
 from .views import *
 from .form import MyChangePasswordForm , PasswordResetForm
 from django.contrib.auth.views import LogoutView, PasswordChangeView, PasswordChangeDoneView, PasswordResetView, PasswordResetConfirmView, PasswordResetDoneView
-from chat import views as chat_views
-from private_chat import views as private_chat_views
+
+from chats import views as chats_views
+from django.contrib.auth import views as auth_views
+
+
 
 urlpatterns = [
     path('', home, name='home'),
@@ -16,17 +19,19 @@ urlpatterns = [
     path('reset-password/', PasswordResetView.as_view(template_name='core/reset-password.html', form_class= PasswordResetForm), name='reset-password'),
     path('password-reset-confirm/<uidb64>/<token>/', PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
     path('password-reset-done/', PasswordResetDoneView.as_view(), name='password_reset_done'),
-    path('home', chat_views.home, name='home'),
-    path('<str:room>/', chat_views.room, name='room'),
-    path('checkview', chat_views.checkview, name='checkview'),
-    path('send', chat_views.send, name='send'),
-    path('getMessages/<str:room>/', chat_views.getMessages, name='getMessages'),
+   
 
-    path('index/', private_chat_views.index, name='index'),
-    path('<str:username>', private_chat_views.private_chatPage, name='chat'),
+    path('chathome/', chats_views.home, name='chat-home'),
+    path('login/', auth_views.LoginView.as_view(template_name="chat/login.html"), name='chat-login'),
+    path('logout/', auth_views.LogoutView.as_view(template_name="chat/logout.html"), name='chat-logout'),
+    path('register/', chats_views.register, name='chat-register'),
+    path('profile/', chats_views.profile, name='chat-profile'),
+    path('send/', chats_views.send_chat, name='chat-send'),
+    path('renew/', chats_views.get_messages, name='chat-renew'),
+
+
+  
 
    
 ]
-
-
 

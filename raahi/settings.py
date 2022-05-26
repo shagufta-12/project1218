@@ -45,9 +45,11 @@ INSTALLED_APPS = [
     'django_rest_passwordreset',
     'drf_yasg',
     'django.contrib.staticfiles',
-    'chat',
     'channels',
-    'private_chat',
+    'chats',
+   
+    
+    
     
     
    
@@ -85,7 +87,7 @@ TEMPLATES = [
     },
 ]
 
-#WSGI_APPLICATION = 'raahi.wsgi.application'
+WSGI_APPLICATION = 'raahi.wsgi.application'
 ASGI_APPLICATION = 'raahi.asgi.application'
 
 

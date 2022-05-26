@@ -3,6 +3,7 @@ from django.views.generic import View
 from .form import *
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
+from chats import views as chat_views
 
 
 # Create your views here.
@@ -48,3 +49,7 @@ class MyLoginView(View):
          
             return render(request, 'core/login.html', {'form':fm})
             
+
+    def chats(request):
+        return render(request,'chats/home.html')
+    
