@@ -89,20 +89,11 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'raahi.wsgi.application'
-ASGI_APPLICATION = 'raahi.asgi.application'
+
 
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-
-CHANNEL_LAYERS = {
-    "default":{
-        "BACKEND": "channels_redis.core.RedisChannelLayer",
-        "CONFIG": {
-            "hosts": [{"127.0.0.1", 6379}],
-        },
-    },
-}
 
 
 
