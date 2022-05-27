@@ -89,7 +89,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'raahi.wsgi.application'
-
+ASGI_APPLICATION = 'raahi.asgi.application'
 
 
 # Database
