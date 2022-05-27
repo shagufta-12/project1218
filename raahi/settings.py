@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'django_rest_passwordreset',
     'drf_yasg',
     'django.contrib.staticfiles',
-    'channels',
     'chats',
     'crispy_forms',
    
